@@ -1,0 +1,249 @@
+
+# Dicom-File-Format
+
+# Dicom-Meta-Information-Header
+# Used TransferSyntax: Little Endian Explicit
+(0002,0000) UL 180                                      #   4, 1 FileMetaInformationGroupLength
+(0002,0001) OB 00\01                                    #   2, 1 FileMetaInformationVersion
+(0002,0002) UI =MRImageStorage                          #  26, 1 MediaStorageSOPClassUID
+(0002,0003) UI [1.3.12.2.1107.5.2.36.40193.2014011415191350988263196] #  52, 1 MediaStorageSOPInstanceUID
+(0002,0010) UI =LittleEndianExplicit                    #  20, 1 TransferSyntaxUID
+(0002,0012) UI [1.2.40.0.13.1.1]                        #  16, 1 ImplementationClassUID
+(0002,0013) SH [dcm4che-2.0]                            #  12, 1 ImplementationVersionName
+
+# Dicom-Data-Set
+# Used TransferSyntax: Little Endian Explicit
+(0008,0008) CS [ORIGINAL\PRIMARY\M\DIS2D]               #  24, 4 ImageType
+(0008,0012) DA [20140114]                               #   8, 1 InstanceCreationDate
+(0008,0013) TM [151914.609000]                          #  14, 1 InstanceCreationTime
+(0008,0016) UI =MRImageStorage                          #  26, 1 SOPClassUID
+(0008,0018) UI [1.3.12.2.1107.5.2.36.40193.2014011415191350988263196] #  52, 1 SOPInstanceUID
+(0008,0020) DA [20140114]                               #   8, 1 StudyDate
+(0008,0021) DA [20140114]                               #   8, 1 SeriesDate
+(0008,0022) DA [20140114]                               #   8, 1 AcquisitionDate
+(0008,0023) DA [20140114]                               #   8, 1 ContentDate
+(0008,0030) TM [151708.031000]                          #  14, 1 StudyTime
+(0008,0031) TM [151914.609000]                          #  14, 1 SeriesTime
+(0008,0032) TM [151902.572500]                          #  14, 1 AcquisitionTime
+(0008,0033) TM [151914.609000]                          #  14, 1 ContentTime
+(0008,0050) SH [1400029351]                             #  10, 1 AccessionNumber
+(0008,0060) CS [MR]                                     #   2, 1 Modality
+(0008,0070) LO [SIEMENS]                                #   8, 1 Manufacturer
+(0008,0080) LO (no value available)                     #   0, 0 InstitutionName
+(0008,0081) ST (no value available)                     #   0, 0 InstitutionAddress
+(0008,0090) PN (no value available)                     #   0, 0 ReferringPhysicianName
+(0008,0092) ST (no value available)                     #   0, 0 ReferringPhysicianAddress
+(0008,0094) SH (no value available)                     #   0, 0 ReferringPhysicianTelephoneNumbers
+(0008,1010) SH [MRC40193]                               #   8, 1 StationName
+(0008,1030) LO [MR_1_Screening]                         #  14, 1 StudyDescription
+(0008,1032) SQ (Sequence with undefined length #=1)     # u/l, 1 ProcedureCodeSequence
+  (fffe,e000) na (Item with undefined length #=3)         # u/l, 1 Item
+    (0008,0100) SH [16]                                     #   2, 1 CodeValue
+    (0008,0102) SH [16]                                     #   2, 1 CodingSchemeDesignator
+    (0008,0104) LO [16]                                     #   2, 1 CodeMeaning
+  (fffe,e00d) na (ItemDelimitationItem)                   #   0, 0 ItemDelimitationItem
+(fffe,e0dd) na (SequenceDelimitationItem)               #   0, 0 SequenceDelimitationItem
+(0008,103e) LO [pace_localizer]                         #  14, 1 SeriesDescription
+(0008,1040) LO (no value available)                     #   0, 0 InstitutionalDepartmentName
+(0008,1048) PN (no value available)                     #   0, 0 PhysiciansOfRecord
+(0008,1050) PN (no value available)                     #   0, 0 PerformingPhysicianName
+(0008,1060) PN (no value available)                     #   0, 0 NameOfPhysiciansReadingStudy
+(0008,1070) PN (no value available)                     #   0, 0 OperatorsName
+(0008,1080) LO (no value available)                     #   0, 0 AdmittingDiagnosesDescription
+(0008,1090) LO [Verio 3T]                               #   8, 1 ManufacturerModelName
+(0008,1140) SQ (Sequence with undefined length #=3)     # u/l, 1 ReferencedImageSequence
+  (fffe,e000) na (Item with undefined length #=2)         # u/l, 1 Item
+    (0008,1150) UI =MRImageStorage                          #  26, 1 ReferencedSOPClassUID
+    (0008,1155) UI [1.3.12.2.1107.5.2.36.40193.2014011415175339157263159] #  52, 1 ReferencedSOPInstanceUID
+  (fffe,e00d) na (ItemDelimitationItem)                   #   0, 0 ItemDelimitationItem
+  (fffe,e000) na (Item with undefined length #=2)         # u/l, 1 Item
+    (0008,1150) UI =MRImageStorage                          #  26, 1 ReferencedSOPClassUID
+    (0008,1155) UI [1.3.12.2.1107.5.2.36.40193.2014011415175344322563161] #  52, 1 ReferencedSOPInstanceUID
+  (fffe,e00d) na (ItemDelimitationItem)                   #   0, 0 ItemDelimitationItem
+  (fffe,e000) na (Item with undefined length #=2)         # u/l, 1 Item
+    (0008,1150) UI =MRImageStorage                          #  26, 1 ReferencedSOPClassUID
+    (0008,1155) UI [1.3.12.2.1107.5.2.36.40193.2014011415175347830063165] #  52, 1 ReferencedSOPInstanceUID
+  (fffe,e00d) na (ItemDelimitationItem)                   #   0, 0 ItemDelimitationItem
+(fffe,e0dd) na (SequenceDelimitationItem)               #   0, 0 SequenceDelimitationItem
+(0008,2111) ST (no value available)                     #   0, 0 DerivationDescription
+(0010,0010) PN [17833_999991414]                        #  16, 1 PatientName
+(0010,0020) LO [999991414]                              #  10, 1 PatientID
+(0010,0021) LO [17833]                                  #   6, 1 IssuerOfPatientID
+(0010,0030) DA (no value available)                     #   0, 0 PatientBirthDate
+(0010,0032) TM (no value available)                     #   0, 0 PatientBirthTime
+(0010,0040) CS [F]                                      #   2, 1 PatientSex
+(0010,1000) LO (no value available)                     #   0, 0 RETIRED_OtherPatientIDs
+(0010,1001) PN (no value available)                     #   0, 0 OtherPatientNames
+(0010,1005) PN (no value available)                     #   0, 0 PatientBirthName
+(0010,1010) AS (no value available)                     #   0, 0 PatientAge
+(0010,1020) DS (no value available)                     #   0, 0 PatientSize
+(0010,1030) DS (no value available)                     #   0, 0 PatientWeight
+(0010,1040) LO (no value available)                     #   0, 0 PatientAddress
+(0010,1080) LO (no value available)                     #   0, 0 MilitaryRank
+(0010,1081) LO (no value available)                     #   0, 0 BranchOfService
+(0010,1090) LO (no value available)                     #   0, 0 RETIRED_MedicalRecordLocator
+(0010,2000) LO (no value available)                     #   0, 0 MedicalAlerts
+(0010,2110) LO (no value available)                     #   0, 0 Allergies
+(0010,2154) SH (no value available)                     #   0, 0 PatientTelephoneNumbers
+(0010,2160) SH (no value available)                     #   0, 0 EthnicGroup
+(0010,2180) SH (no value available)                     #   0, 0 Occupation
+(0010,21b0) LT (no value available)                     #   0, 0 AdditionalPatientHistory
+(0010,21f0) LO (no value available)                     #   0, 0 PatientReligiousPreference
+(0010,4000) LT (no value available)                     #   0, 0 PatientComments
+(0012,0010) LO [Bayer]                                  #   6, 1 ClinicalTrialSponsorName
+(0012,0020) LO [17833]                                  #   6, 1 ClinicalTrialProtocolID
+(0012,0021) LO [Bayer_17833_Chronos4]                   #  20, 1 ClinicalTrialProtocolName
+(0012,0030) LO [99999]                                  #   6, 1 ClinicalTrialSiteID
+(0012,0031) LO [test]                                   #   4, 1 ClinicalTrialSiteName
+(0012,0040) LO [999991414]                              #  10, 1 ClinicalTrialSubjectID
+(0012,0042) LO [3618]                                   #   4, 1 ClinicalTrialSubjectReadingID
+(0012,0050) LO [V1]                                     #   2, 1 ClinicalTrialTimePointID
+(0012,0051) ST [1_Screening]                            #  12, 1 ClinicalTrialTimePointDescription
+(0012,0060) LO (no value available)                     #   0, 0 ClinicalTrialCoordinatingCenterName
+(0012,0071) LO (no value available)                     #   0, 0 ClinicalTrialSeriesID
+(0012,0072) LO (no value available)                     #   0, 0 ClinicalTrialSeriesDescription
+(0018,0010) LO (no value available)                     #   0, 0 ContrastBolusAgent
+(0018,0015) CS (no value available)                     #   0, 0 BodyPartExamined
+(0018,0020) CS [GR]                                     #   2, 1 ScanningSequence
+(0018,0021) CS [SP\OSP]                                 #   6, 2 SequenceVariant
+(0018,0022) CS [PFP]                                    #   4, 1 ScanOptions
+(0018,0023) CS [2D]                                     #   2, 1 MRAcquisitionType
+(0018,0024) SH [*fl2d1]                                 #   6, 1 SequenceName
+(0018,0025) CS [N]                                      #   2, 1 AngioFlag
+(0018,0050) DS [6]                                      #   2, 1 SliceThickness
+(0018,0060) DS (no value available)                     #   0, 0 KVP
+(0018,0080) DS [67]                                     #   2, 1 RepetitionTime
+(0018,0081) DS [3.36]                                   #   4, 1 EchoTime
+(0018,0082) DS (no value available)                     #   0, 0 InversionTime
+(0018,0083) DS [1]                                      #   2, 1 NumberOfAverages
+(0018,0084) DS [123.163746]                             #  10, 1 ImagingFrequency
+(0018,0085) SH [1H]                                     #   2, 1 ImagedNucleus
+(0018,0086) IS [1]                                      #   2, 1 EchoNumbers
+(0018,0087) DS [3]                                      #   2, 1 MagneticFieldStrength
+(0018,0088) DS [15]                                     #   2, 1 SpacingBetweenSlices
+(0018,0089) IS [224]                                    #   4, 1 NumberOfPhaseEncodingSteps
+(0018,0091) IS [1]                                      #   2, 1 EchoTrainLength
+(0018,0093) DS [80]                                     #   2, 1 PercentSampling
+(0018,0094) DS [100]                                    #   4, 1 PercentPhaseFieldOfView
+(0018,0095) DS [320]                                    #   4, 1 PixelBandwidth
+(0018,1000) LO (no value available)                     #   0, 0 DeviceSerialNumber
+(0018,1020) LO [syngo MR B17]                           #  12, 1 SoftwareVersions
+(0018,1030) LO (no value available)                     #   0, 0 ProtocolName
+(0018,1088) IS (no value available)                     #   0, 0 HeartRate
+(0018,1151) IS (no value available)                     #   0, 0 XRayTubeCurrent
+(0018,1164) DS (no value available)                     #   0, 0 ImagerPixelSpacing
+(0018,1250) SH (no value available)                     #   0, 0 ReceiveCoilName
+(0018,1251) SH [Body]                                   #   4, 1 TransmitCoilName
+(0018,1310) US 256\0\0\205                              #   8, 4 AcquisitionMatrix
+(0018,1312) CS [COL]                                    #   4, 1 InPlanePhaseEncodingDirection
+(0018,1314) DS [20]                                     #   2, 1 FlipAngle
+(0018,1315) CS [N]                                      #   2, 1 VariableFlipAngleFlag
+(0018,1316) DS [0.08805329285538]                       #  16, 1 SAR
+(0018,1318) DS [0]                                      #   2, 1 dBdt
+(0018,1402) CS (no value available)                     #   0, 0 CassetteOrientation
+(0018,1403) CS (no value available)                     #   0, 0 CassetteSize
+(0018,1405) IS (no value available)                     #   0, 0 RelativeXRayExposure
+(0018,5100) CS [HFS]                                    #   4, 1 PatientPosition
+(0018,5101) CS (no value available)                     #   0, 0 ViewPosition
+(0019,0010) LO [SIEMENS MR HEADER]                      #  18, 1 PrivateCreator
+(0019,1008) CS [IMAGE NUM 4]                            #  12, 1 Unknown Tag & Data
+(0019,1009) LO [1.0]                                    #   4, 1 Unknown Tag & Data
+(0019,100b) DS [8275]                                   #   4, 1 Unknown Tag & Data
+(0019,100f) SH [Normal]                                 #   6, 1 Unknown Tag & Data
+(0019,1011) SH [No]                                     #   2, 1 Unknown Tag & Data
+(0019,1012) SL 0\0\-1640                                #  12, 3 Unknown Tag & Data
+(0019,1013) SL 0\0\-1638                                #  12, 3 Unknown Tag & Data
+(0019,1014) IS [0\0\2]                                  #   6, 3 Unknown Tag & Data
+(0019,1015) FD -185.18256187\-200\52.306983950000003    #  24, 3 Unknown Tag & Data
+(0019,1016) DS [0.0075]                                 #   6, 1 Unknown Tag & Data
+(0019,1017) DS [1]                                      #   2, 1 Unknown Tag & Data
+(0019,1018) IS [6100]                                   #   4, 1 Unknown Tag & Data
+(0020,000d) UI [1.2.410.200003.9.1.0.136174978.20140114.0.1400029351.1] #  54, 1 StudyInstanceUID
+(0020,000e) UI [1.3.12.2.1107.5.2.36.40193.2014011415185525457763176.0.0.0] #  58, 1 SeriesInstanceUID
+(0020,0010) SH (no value available)                     #   0, 0 StudyID
+(0020,0011) IS [2]                                      #   2, 1 SeriesNumber
+(0020,0012) IS [1]                                      #   2, 1 AcquisitionNumber
+(0020,0013) IS [9]                                      #   2, 1 InstanceNumber
+(0020,0030) DS (no value available)                     #   0, 0 RETIRED_ImagePosition
+(0020,0032) DS [-185.18256187439\-200\54.306983947754]  #  38, 3 ImagePositionPatient
+(0020,0035) DS (no value available)                     #   0, 0 RETIRED_ImageOrientation
+(0020,0037) DS [1\0\0\0\1\0]                            #  12, 6 ImageOrientationPatient
+(0020,0052) UI [1.3.12.2.1107.5.2.36.40193.2.20140114151708171.0.0.0] #  52, 1 FrameOfReferenceUID
+(0020,1002) IS (no value available)                     #   0, 0 ImagesInAcquisition
+(0020,1040) LO (no value available)                     #   0, 0 PositionReferenceIndicator
+(0020,1041) DS [54.306983947754]                        #  16, 1 SliceLocation
+(0020,1206) IS (no value available)                     #   0, 0 NumberOfStudyRelatedSeries
+(0020,1208) IS (no value available)                     #   0, 0 NumberOfStudyRelatedInstances
+(0020,1209) IS (no value available)                     #   0, 0 NumberOfSeriesRelatedInstances
+(0020,4000) LT (no value available)                     #   0, 0 ImageComments
+(0028,0002) US 1                                        #   2, 1 SamplesPerPixel
+(0028,0004) CS [MONOCHROME2]                            #  12, 1 PhotometricInterpretation
+(0028,0010) US 512                                      #   2, 1 Rows
+(0028,0011) US 512                                      #   2, 1 Columns
+(0028,0030) DS [0.78125\0.78125]                        #  16, 2 PixelSpacing
+(0028,0100) US 16                                       #   2, 1 BitsAllocated
+(0028,0101) US 12                                       #   2, 1 BitsStored
+(0028,0102) US 11                                       #   2, 1 HighBit
+(0028,0103) US 0                                        #   2, 1 PixelRepresentation
+(0028,0106) US 0                                        #   2, 1 SmallestImagePixelValue
+(0028,0107) US 708                                      #   2, 1 LargestImagePixelValue
+(0028,0120) US (no value available)                     #   0, 0 PixelPaddingValue
+(0028,1050) DS [347]                                    #   4, 1 WindowCenter
+(0028,1051) DS [754]                                    #   4, 1 WindowWidth
+(0028,1055) LO [Algo1]                                  #   6, 1 WindowCenterWidthExplanation
+(0029,0010) LO [SIEMENS CSA HEADER]                     #  18, 1 PrivateCreator
+(0029,0011) LO [SIEMENS MEDCOM HEADER2]                 #  22, 1 PrivateCreator
+(0029,1008) CS [IMAGE NUM 4]                            #  12, 1 Unknown Tag & Data
+(0029,1009) LO [20140114]                               #   8, 1 Unknown Tag & Data
+(0029,1010) OB 53\56\31\30\04\03\02\01\53\00\00\00\4d\00\00\00\45\63\68\6f\4c\69... # 9468, 1 Unknown Tag & Data
+(0029,1018) CS [MR]                                     #   2, 1 Unknown Tag & Data
+(0029,1019) LO [20140114]                               #   8, 1 Unknown Tag & Data
+(0029,1020) OB 53\56\31\30\04\03\02\01\41\00\00\00\4d\00\00\00\55\73\65\64\50\61... # 71612, 1 Unknown Tag & Data
+(0029,1160) LO [com]                                    #   4, 1 Unknown Tag & Data
+(0031,0001) LO (no value available)                     #   0, 0 Unknown Tag & Data
+(0031,0002) LO (no value available)                     #   0, 0 Unknown Tag & Data
+(0031,0003) LO [Loaded]                                 #   6, 1 Unknown Tag & Data
+(0031,0010) LO (no value available)                     #   0, 0 PrivateCreator
+(0031,0012) LO [no]                                     #   2, 1 PrivateCreator
+(0032,1032) PN [KIM^SEONG GEUN]                         #  14, 1 RequestingPhysician
+(0032,1060) LO [MR Kidney (CE)]                         #  14, 1 RequestedProcedureDescription
+(0032,1064) SQ (Sequence with undefined length #=1)     # u/l, 1 RequestedProcedureCodeSequence
+  (fffe,e000) na (Item with undefined length #=3)         # u/l, 1 Item
+    (0008,0100) SH [16]                                     #   2, 1 CodeValue
+    (0008,0102) SH [16]                                     #   2, 1 CodingSchemeDesignator
+    (0008,0104) LO [16]                                     #   2, 1 CodeMeaning
+  (fffe,e00d) na (ItemDelimitationItem)                   #   0, 0 ItemDelimitationItem
+(fffe,e0dd) na (SequenceDelimitationItem)               #   0, 0 SequenceDelimitationItem
+(0037,0035) LO [MAROTECH Inc.]                          #  14, 1 PrivateCreator
+(0037,3501) LO [3.0]                                    #   4, 1 Unknown Tag & Data
+(0037,3521) US 200                                      #   2, 1 Unknown Tag & Data
+(0037,3522) US 200                                      #   2, 1 Unknown Tag & Data
+(0037,3523) OB ff\d8\ff\e0\00\10\4a\46\49\46\00\01\01\00\00\01\00\01\00\00\ff\db... # 4696, 1 Unknown Tag & Data
+(0040,0244) DA [20140114]                               #   8, 1 PerformedProcedureStepStartDate
+(0040,0245) TM [151708.093000]                          #  14, 1 PerformedProcedureStepStartTime
+(0040,0253) SH [4006351]                                #   8, 1 PerformedProcedureStepID
+(0040,0254) LO [MR Kidney (CE)]                         #  14, 1 PerformedProcedureStepDescription
+(0040,0275) SQ (Sequence with undefined length #=1)     # u/l, 1 RequestAttributesSequence
+  (fffe,e000) na (Item with undefined length #=3)         # u/l, 1 Item
+    (0040,0007) LO [MR Kidney (CE)]                         #  14, 1 ScheduledProcedureStepDescription
+    (0040,0009) SH [4006351]                                #   8, 1 ScheduledProcedureStepID
+    (0040,1001) SH [1400029351]                             #  10, 1 RequestedProcedureID
+  (fffe,e00d) na (ItemDelimitationItem)                   #   0, 0 ItemDelimitationItem
+(fffe,e0dd) na (SequenceDelimitationItem)               #   0, 0 SequenceDelimitationItem
+(0051,0010) LO [SIEMENS MR HEADER]                      #  18, 1 PrivateCreator
+(0051,1008) CS [IMAGE NUM 4]                            #  12, 1 Unknown Tag & Data
+(0051,1009) LO [1.0]                                    #   4, 1 Unknown Tag & Data
+(0051,100a) LO [TA 08.27]                               #   8, 1 Unknown Tag & Data
+(0051,100b) LO [410p*512 I]                             #  10, 1 Unknown Tag & Data
+(0051,100c) LO [FoV 400*400]                            #  12, 1 Unknown Tag & Data
+(0051,100d) SH [SP H54.3]                               #   8, 1 Unknown Tag & Data
+(0051,100e) LO [Tra]                                    #   4, 1 Unknown Tag & Data
+(0051,100f) LO [d:BO1,2;BO1,2;SP2-5]                    #  20, 1 Unknown Tag & Data
+(0051,1011) LO [p2]                                     #   2, 1 Unknown Tag & Data
+(0051,1012) SH [TP H2]                                  #   6, 1 Unknown Tag & Data
+(0051,1013) SH [+LPH]                                   #   4, 1 Unknown Tag & Data
+(0051,1015) SH [E]                                      #   2, 1 Unknown Tag & Data
+(0051,1016) LO [p2 M/DIS2D]                             #  10, 1 Unknown Tag & Data
+(0051,1017) SH [SL 6.0]                                 #   6, 1 Unknown Tag & Data
+(0051,1019) LO [A1/PFP]                                 #   6, 1 Unknown Tag & Data
+(7fe0,0010) OW 0000\0000\0000\0000\0000\0000\0000\0000\0000\0000\0000\0000\0000... # 524288, 1 PixelData

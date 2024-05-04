@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="ICPUpgrade Test PW Suite" verbose="3"
+	thread-count="3" preserve-order="true" parallel="false">
+
+	<test name="Radgate Web Import" preserve-order="true">
+		<parameter name="trialNameValue" value="Bayer_21197_OBR" />
+		<parameter name="siteIdValue" value="99999" />
+		<parameter name="subjectIdValue" value="999993510" />
+		<parameter name="timepointDescription" value="Study_period_1" />
+		<parameter name="modality" value="MR" />
+		<parameter name="cmiTime" value="12:42:52" />
+		<classes>
+			<class name="com.qa.radgate.tests.LoginPageTest">
+				<methods>
+					<include name="loginPageTitleTest" />
+					<include name="loginTest" />
+					<include name="trialSelectPageTest" />
+					<include name="selectSiteIdTest" />
+					<include name="selectSubjectIdTest" />
+					<include name="importFormNavigationTest" />
+					<include name="webImportPageNavigationTest" />
+
+				</methods>
+			</class>
+			<!-- <class name="com.qa.radgate.tests.RadgateTrialSelectPageTest"> <methods> 
+				<include name="radgateTrialSelectPageNavigationTest" /> </methods> </class> -->
+		</classes>
+	</test>
+</suite> 

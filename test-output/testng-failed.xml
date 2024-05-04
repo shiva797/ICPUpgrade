@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" guice-stage="DEVELOPMENT" verbose="3" name="Failed suite [ICPUpgrade Test PW Suite]">
+  <test thread-count="3" verbose="3" name="Radgate Web Import(failed)">
+    <parameter name="modality" value="MR"/>
+    <parameter name="cmiTime" value="12:42:52"/>
+    <parameter name="siteIdValue" value="99999"/>
+    <parameter name="timepointDescription" value="Study_period_1"/>
+    <parameter name="trialNameValue" value="Bayer_21197_OBR"/>
+    <parameter name="subjectIdValue" value="999993510"/>
+    <classes>
+      <class name="com.qa.radgate.tests.LoginPageTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="webImportPageNavigationTest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.qa.radgate.tests.LoginPageTest -->
+    </classes>
+  </test> <!-- Radgate Web Import(failed) -->
+</suite> <!-- Failed suite [ICPUpgrade Test PW Suite] -->
