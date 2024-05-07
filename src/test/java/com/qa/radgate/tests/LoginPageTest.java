@@ -8,8 +8,6 @@ import org.testng.asserts.SoftAssert;
 
 import com.qa.radgate.base.BaseTest;
 import com.qa.radgate.constants.AppConstants;
-import com.qa.radgate.pages.ImportManagerPage;
-import com.qa.radgate.pages.RadgateTrialSelectPage;
 
 public class LoginPageTest extends BaseTest {
 
@@ -77,6 +75,14 @@ public class LoginPageTest extends BaseTest {
 		
 	}
 	
+	@Test(priority=8)
+	@Parameters("uploadDcmFilePath")
+	public void webImportFileBrowseTest(String uploadDcmFilePath) {
+		String afterFileUploadUrl=webImportPage.webImportFileBrowse(uploadDcmFilePath);
+		System.out.println("After upload DCM file URL is: "+afterFileUploadUrl);
+		Assert.assertEquals(afterFileUploadUrl, AppConstants.UPLOADSERIESFILES_PAGE_URL);
+		
+	}
 	
 
 }

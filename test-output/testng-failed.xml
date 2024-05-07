@@ -6,6 +6,7 @@
     <parameter name="cmiTime" value="12:42:52"/>
     <parameter name="siteIdValue" value="99999"/>
     <parameter name="timepointDescription" value="Study_period_1"/>
+    <parameter name="uploadDcmFilePath" value="E:\\238\\Screening\\_278ac12cbd154655bd1c45fe773cb8cb.dcm"/>
     <parameter name="trialNameValue" value="Bayer_21197_OBR"/>
     <parameter name="subjectIdValue" value="999993510"/>
     <classes>
@@ -13,7 +14,7 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="webImportPageNavigationTest" invocation-numbers="0"/>
+          <include name="webImportFileBrowseTest" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.qa.radgate.tests.LoginPageTest -->
     </classes>

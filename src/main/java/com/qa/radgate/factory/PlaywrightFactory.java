@@ -96,7 +96,7 @@ public class PlaywrightFactory {
 	public static void dicomModifier(String batchFileName) {
 		try {
 			// Specify the path to the batch file
-			String batchFilePath = System.getProperty("user.dir") + "\\src\\main\\resource\\config\\" + batchFileName;
+			String batchFilePath = System.getProperty("user.dir") + "\\src\\test\\resources\\config\\" + batchFileName;
 			System.out.println(batchFilePath + " batch file starts the process");
 
 			// Create ProcessBuilder instance with the batch file path as argument
