@@ -3,6 +3,8 @@ package com.qa.radgate.factory;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.Base64;
 import java.util.Properties;
 
 import com.microsoft.playwright.Browser;
@@ -26,34 +28,57 @@ public class PlaywrightFactory {
 	Page page;
 	Properties prop;
 
+	private static ThreadLocal<Browser> tlBrowser = new ThreadLocal<>();
+	private static ThreadLocal<BrowserContext> tlBrowserContext = new ThreadLocal<>();
+	private static ThreadLocal<Page> tlPage = new ThreadLocal<>();
+	private static ThreadLocal<Playwright> tlPlaywright = new ThreadLocal<>();
+
+	public static Playwright getPlaywright() {
+		return tlPlaywright.get();
+
+	}
+
+	public static Browser getBrowser() {
+		return tlBrowser.get();
+	}
+
+	public static BrowserContext getBrowserContext() {
+		return tlBrowserContext.get();
+	}
+
+	private static Page getPage() {
+		return tlPage.get();
+	}
+
 	public Page initBrowser(Properties prop) {
 
-		String browserName = prop.getProperty("Browser").trim();
-		String url = prop.getProperty("url").trim();
+		String browserName = prop.getProperty("browser").trim();
 		// boolean headless=prop.getProperty("headless").trim() != null;
 
 		System.out.println("Browse Name is: " + browserName);
 
-		playwright = Playwright.create();
+		// playwright = Playwright.create();
+		tlPlaywright.set(Playwright.create());
+
 		switch (browserName.toLowerCase()) {
 		case "chromium":
 			// launch() method launch the browser in Headlesmode
-			browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+			tlBrowser.set(getPlaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(false)));
 			break;
 
 		case "firefox":
-			// launch() method launch the browser in Headlesmode
-			browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
+			tlBrowser.set(getPlaywright().firefox().launch(new BrowserType.LaunchOptions().setHeadless(false)));
 			break;
-
 		case "safari":
-			// launch() method launch the browser in Headlesmode
-			browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(false));
+			tlBrowser.set(getPlaywright().webkit().launch(new BrowserType.LaunchOptions().setHeadless(false)));
 			break;
-
 		case "chrome":
-			// launch() method launch the browser in Headlesmode
-			browser = playwright.chromium().launch(new LaunchOptions().setChannel("chrome").setHeadless(false));
+			tlBrowser.set(
+					getPlaywright().chromium().launch(new LaunchOptions().setChannel("chrome").setHeadless(false)));
+			break;
+		case "edge":
+			tlBrowser.set(
+					getPlaywright().chromium().launch(new LaunchOptions().setChannel("msedge").setHeadless(false)));
 			break;
 
 		default:
@@ -61,20 +86,15 @@ public class PlaywrightFactory {
 			break;
 		}
 		// Create a new incognito browser context.
-		browserContext = browser.newContext();
-
-		page = browserContext.newPage();
-		page.navigate(url);
-
-		return page;
+		tlBrowserContext.set(getBrowser().newContext());
+		
+		tlPage.set(getBrowserContext().newPage());
+		getPage().navigate(prop.getProperty("url").trim());
+		return getPage();
 	}
 
 	/**
 	 * This method is use to initialize the properties properties from config file
-	 * 
-	 * @return
-	 * 
-	 * @throws FileNotFoundException
 	 * 
 	 */
 	public Properties init_prop() throws FileNotFoundException {
@@ -113,6 +133,22 @@ public class PlaywrightFactory {
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * take screenshot
+	 * 
+	 */
+
+	public static String takeScreenshot() {
+		String path = System.getProperty("user.dir") + "/screenshot/" + System.currentTimeMillis() + ".png";
+		// getPage().screenshot(new
+		// Page.ScreenshotOptions().setPath(Paths.get(path)).setFullPage(true));
+
+		byte[] buffer = getPage().screenshot(new Page.ScreenshotOptions().setPath(Paths.get(path)).setFullPage(true));
+		String base64Path = Base64.getEncoder().encodeToString(buffer);
+
+		return base64Path;
 	}
 
 }

@@ -79,10 +79,16 @@ public class LoginPageTest extends BaseTest {
 	@Parameters("uploadDcmFilePath")
 	public void webImportFileBrowseTest(String uploadDcmFilePath) {
 		String afterFileUploadUrl=webImportPage.webImportFileBrowse(uploadDcmFilePath);
-		System.out.println("After upload DCM file URL is: "+afterFileUploadUrl);
+		System.out.println("After DCM files choose, the URL is: "+afterFileUploadUrl);
 		Assert.assertEquals(afterFileUploadUrl, AppConstants.UPLOADSERIESFILES_PAGE_URL);
 		
 	}
 	
+	@Test(priority=8)
+	public void dcmSelectCheckboxTest() {
+		Assert.assertTrue(webImportPage.isDcmCheckboxSelected());
+		
+	}
+
 
 }

@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import com.microsoft.playwright.Page;
 import com.qa.radgate.factory.PlaywrightFactory;
@@ -33,15 +34,20 @@ public class BaseTest {
 	protected ImportFormPage importFormPage;
 	protected WebImportPage webImportPage;
 
+	@Parameters({ "browser" })
 	@BeforeTest
-	public void setUp() throws FileNotFoundException {
+	public void setUp(String browserName) throws FileNotFoundException {
 
-		System.out.println("beforetest ");
+		System.out.println("beforetest Browser Name"+browserName);
 		pf = new PlaywrightFactory();
 		prop=pf.init_prop();
+		
+		if (browserName != null) {
+			prop.setProperty("browser", browserName);
+		}
+		
 		page = pf.initBrowser(prop);
 		loginPage = new LoginPage(page);
-		System.out.println(loginPage+"Base Test?>>>>>>>>>>>>>>>>>>>>>>");
 		
 
 	}
