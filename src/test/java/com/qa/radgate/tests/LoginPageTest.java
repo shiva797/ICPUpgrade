@@ -78,7 +78,7 @@ public class LoginPageTest extends BaseTest {
 	@Test(priority=8)
 	@Parameters("uploadDcmFilePath")
 	public void webImportFileBrowseTest(String uploadDcmFilePath) {
-		String afterFileUploadUrl=webImportPage.webImportFileBrowse(uploadDcmFilePath);
+		String afterFileUploadUrl=webImportPage.getWebImportFileBrowseUrl(uploadDcmFilePath);
 		System.out.println("After DCM files choose, the URL is: "+afterFileUploadUrl);
 		Assert.assertEquals(afterFileUploadUrl, AppConstants.UPLOADSERIESFILES_PAGE_URL);
 		
@@ -89,6 +89,22 @@ public class LoginPageTest extends BaseTest {
 		Assert.assertTrue(webImportPage.isDcmCheckboxSelected());
 		
 	}
+	
+	@Test(priority=9)
+	public void webImportDtfPageNavigationTest() {
+		webImportDtfPage=webImportPage.navigateToWebImportDtfPage();
+		String actWiDtfPageUrl = webImportDtfPage.getWebImportDtfPageURL();
+		System.out.println("page act title: " + actWiDtfPageUrl);
+		Assert.assertEquals(actWiDtfPageUrl, AppConstants.WIDTF_PAGE_URL);
+		
+	}
+	
+	
+	@Test(priority=10)
+	public void dtfNumberTest() {
+		
+	}
+	
 
 
 }

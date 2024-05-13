@@ -13,6 +13,7 @@ import com.qa.radgate.pages.ImportFormPage;
 import com.qa.radgate.pages.ImportManagerPage;
 import com.qa.radgate.pages.LoginPage;
 import com.qa.radgate.pages.RadgateTrialSelectPage;
+import com.qa.radgate.pages.WebImportDtfPage;
 import com.qa.radgate.pages.WebImportPage;
 
 /**
@@ -33,6 +34,7 @@ public class BaseTest {
 	protected ImportManagerPage importManagerPage;
 	protected ImportFormPage importFormPage;
 	protected WebImportPage webImportPage;
+	protected WebImportDtfPage webImportDtfPage;
 
 	@Parameters({ "browser" })
 	@BeforeTest

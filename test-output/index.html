@@ -51,25 +51,12 @@
   &lt;listeners&gt;
     &lt;listener class-name=&quot;com.qa.radgate.listeners.ExtentReportListener&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test thread-count=&quot;3&quot; verbose=&quot;4&quot; name=&quot;Radgate Web Import Test_Firefox&quot; parallel=&quot;tests&quot;&gt;
-    &lt;parameter name=&quot;modality&quot; value=&quot;MR&quot;/&gt;
-    &lt;parameter name=&quot;cmiTime&quot; value=&quot;12:42:52&quot;/&gt;
-    &lt;parameter name=&quot;siteIdValue&quot; value=&quot;99999&quot;/&gt;
-    &lt;parameter name=&quot;timepointDescription&quot; value=&quot;Study_period_1&quot;/&gt;
-    &lt;parameter name=&quot;browser&quot; value=&quot;safari&quot;/&gt;
-    &lt;parameter name=&quot;uploadDcmFilePath&quot; value=&quot;E:\\238\\Screening&quot;/&gt;
-    &lt;parameter name=&quot;trialNameValue&quot; value=&quot;Bayer_21197_OBR&quot;/&gt;
-    &lt;parameter name=&quot;subjectIdValue&quot; value=&quot;999993510&quot;/&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;com.qa.radgate.tests.LoginPageTest&quot;/&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Radgate Web Import Test_Firefox --&gt;
   &lt;test thread-count=&quot;3&quot; verbose=&quot;4&quot; name=&quot;Radgate Web Import Test_Chrome&quot; parallel=&quot;tests&quot;&gt;
     &lt;parameter name=&quot;modality&quot; value=&quot;MR&quot;/&gt;
     &lt;parameter name=&quot;cmiTime&quot; value=&quot;12:42:52&quot;/&gt;
     &lt;parameter name=&quot;siteIdValue&quot; value=&quot;99999&quot;/&gt;
     &lt;parameter name=&quot;timepointDescription&quot; value=&quot;Study_period_1&quot;/&gt;
-    &lt;parameter name=&quot;browser&quot; value=&quot;firefox&quot;/&gt;
+    &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;parameter name=&quot;uploadDcmFilePath&quot; value=&quot;E:\\238\\Screening\\_278ac12cbd154655bd1c45fe773cb8cb.dcm&quot;/&gt;
     &lt;parameter name=&quot;trialNameValue&quot; value=&quot;Bayer_21197_OBR&quot;/&gt;
     &lt;parameter name=&quot;subjectIdValue&quot; value=&quot;999993510&quot;/&gt;
@@ -85,6 +72,7 @@
           &lt;include name=&quot;webImportPageNavigationTest&quot;/&gt;
           &lt;include name=&quot;webImportFileBrowseTest&quot;/&gt;
           &lt;include name=&quot;dcmSelectCheckboxTest&quot;/&gt;
+          &lt;include name=&quot;webImportDtfPageNavigationTest&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- com.qa.radgate.tests.LoginPageTest --&gt;
     &lt;/classes&gt;
@@ -99,9 +87,6 @@
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <ul>
-              <li>
-                <span class="test-name">Radgate Web Import Test_Firefox (1 class)</span>
-              </li>
               <li>
                 <span class="test-name">Radgate Web Import Test_Chrome (1 class)</span>
               </li>
@@ -148,9 +133,16 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-ICPUpgrade_Test_PW_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.qa.radgate.tests.LoginPageTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">dtfNumberTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-ICPUpgrade_Test_PW_Suite" class="panel">
@@ -163,13 +155,7 @@ return data;
               <div class="configuration-test before">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">setUp(safari)</span>
-                <span class="method-start">0 ms</span>
-              </div> <!-- configuration-test before -->
-              <div class="configuration-test before">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">setUp(firefox)</span>
+                <span class="method-name">setUp(chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
           </div> <!-- main-panel-content rounded-window-bottom -->

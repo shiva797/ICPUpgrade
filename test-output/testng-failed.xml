@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="3" guice-stage="DEVELOPMENT" verbose="3" name="Failed suite [ICPUpgrade Test PW Suite]" parallel="methods">
-  <test thread-count="3" verbose="3" name="Radgate Web Import Test_Chrome(failed)" parallel="methods">
+<suite thread-count="3" guice-stage="DEVELOPMENT" verbose="4" name="Failed suite [ICPUpgrade Test PW Suite]" parallel="tests">
+  <listeners>
+    <listener class-name="com.qa.radgate.listeners.ExtentReportListener"/>
+  </listeners>
+  <test thread-count="3" verbose="4" name="Radgate Web Import Test_Chrome(failed)" parallel="tests">
     <parameter name="modality" value="MR"/>
     <parameter name="cmiTime" value="12:42:52"/>
     <parameter name="siteIdValue" value="99999"/>
     <parameter name="timepointDescription" value="Study_period_1"/>
-    <parameter name="browser" value="chromium"/>
+    <parameter name="browser" value="firefox"/>
     <parameter name="uploadDcmFilePath" value="E:\\238\\Screening\\_278ac12cbd154655bd1c45fe773cb8cb.dcm"/>
     <parameter name="trialNameValue" value="Bayer_21197_OBR"/>
     <parameter name="subjectIdValue" value="999993510"/>
@@ -15,9 +18,35 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="webImportPageNavigationTest" invocation-numbers="0"/>
+          <include name="dcmSelectCheckboxTest"/>
           <include name="webImportFileBrowseTest" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.qa.radgate.tests.LoginPageTest -->
     </classes>
   </test> <!-- Radgate Web Import Test_Chrome(failed) -->
+  <test thread-count="3" verbose="4" name="Radgate Web Import Test_Firefox(failed)" parallel="tests">
+    <parameter name="modality" value="MR"/>
+    <parameter name="cmiTime" value="12:42:52"/>
+    <parameter name="siteIdValue" value="99999"/>
+    <parameter name="timepointDescription" value="Study_period_1"/>
+    <parameter name="browser" value="safari"/>
+    <parameter name="uploadDcmFilePath" value="E:\\238\\Screening"/>
+    <parameter name="trialNameValue" value="Bayer_21197_OBR"/>
+    <parameter name="subjectIdValue" value="999993510"/>
+    <classes>
+      <class name="com.qa.radgate.tests.LoginPageTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="importFormNavigationTest"/>
+          <include name="setUp"/>
+          <include name="webImportPageNavigationTest" invocation-numbers="0"/>
+          <include name="dcmSelectCheckboxTest"/>
+          <include name="selectSiteIdTest" invocation-numbers="0"/>
+          <include name="webImportFileBrowseTest" invocation-numbers="0"/>
+          <include name="selectSubjectIdTest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.qa.radgate.tests.LoginPageTest -->
+    </classes>
+  </test> <!-- Radgate Web Import Test_Firefox(failed) -->
 </suite> <!-- Failed suite [ICPUpgrade Test PW Suite] -->

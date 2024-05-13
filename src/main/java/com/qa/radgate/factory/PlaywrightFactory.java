@@ -137,11 +137,12 @@ public class PlaywrightFactory {
 
 	/**
 	 * take screenshot
+	 * @param message 
 	 * 
 	 */
 
-	public static String takeScreenshot() {
-		String path = System.getProperty("user.dir") + "/screenshot/" + System.currentTimeMillis() + ".png";
+	public static String takeScreenshot(String message) {
+		String path = System.getProperty("user.dir") + "/screenshot/" + message + System.currentTimeMillis() + ".png";
 		// getPage().screenshot(new
 		// Page.ScreenshotOptions().setPath(Paths.get(path)).setFullPage(true));
 

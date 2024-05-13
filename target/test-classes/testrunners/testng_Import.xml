@@ -10,26 +10,8 @@
 
 	</listeners>
 
-	<test name="Radgate Web Import Test_Firefox">
-		<parameter name="browser" value="safari" />
-		<parameter name="trialNameValue" value="Bayer_21197_OBR" />
-		<parameter name="siteIdValue" value="99999" />
-		<parameter name="subjectIdValue" value="999993510" />
-		<parameter name="timepointDescription"
-			value="Study_period_1" />
-		<parameter name="modality" value="MR" />
-		<parameter name="cmiTime" value="12:42:52" />
-		<parameter name="uploadDcmFilePath"
-			value="E:\\238\\Screening" />
-		<classes>
-			<class name="com.qa.radgate.tests.LoginPageTest">
-				
-			</class>
-		</classes>
-	</test>
-
 	<test name="Radgate Web Import Test_Chrome">
-		<parameter name="browser" value="firefox" />
+		<parameter name="browser" value="chrome" />
 		<parameter name="trialNameValue" value="Bayer_21197_OBR" />
 		<parameter name="siteIdValue" value="99999" />
 		<parameter name="subjectIdValue" value="999993510" />
@@ -51,6 +33,7 @@
 					<include name="webImportPageNavigationTest" />
 					<include name="webImportFileBrowseTest" />
 					<include name="dcmSelectCheckboxTest" />
+					<include name="webImportDtfPageNavigationTest" />
 				</methods>
 			</class>
 			<!-- <class name="com.qa.radgate.tests.RadgateTrialSelectPageTest"> <methods> 

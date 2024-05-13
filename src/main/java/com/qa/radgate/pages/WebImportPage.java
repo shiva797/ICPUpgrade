@@ -26,7 +26,7 @@ public class WebImportPage {
 		
 	}
 	
-	public String webImportFileBrowse(String uploadFilePath) {
+	public String getWebImportFileBrowseUrl(String uploadFilePath) {
 		PlaywrightFactory.dicomModifier("dcmodify.bat");
 		System.out.println("Dicom Properties modified successfully");
 		if (uploadFilePath.contains(".dcm")) {
@@ -48,12 +48,18 @@ public class WebImportPage {
 		page.getByRole(AriaRole.CHECKBOX).nth(1).click();
 		if (page.isVisible(nextBtn)) {
 			System.out.println("DCM Files selected");
-			page.click(nextBtn);
 			return true;
 		}
 		return false;
 		
 	}
+	
+	public WebImportDtfPage navigateToWebImportDtfPage() {
+		page.click(nextBtn);
+		return new WebImportDtfPage(page);
+	}
+	
+	
 	
 	
 
